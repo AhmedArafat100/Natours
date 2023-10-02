@@ -106,15 +106,15 @@ app.use(globalErrorHandler)
 
 
 
-// const DB = process.env.DATABASE.replace(
-//     '<PASSWORD>',
-//     process.env.DATABASE_PASSWORD
-//   );
+const DB = process.env.DATABASE.replace(
+    '<PASSWORD>',
+    process.env.DATABASE_PASSWORD
+  );
   
   mongoose
-   // .connect(DB, 
-   .connect(process.env.DATABASE_LOCAL,{
-        useNewUrlParser: true, 
+   .connect(DB, {
+//    .connect(process.env.DATABASE_LOCAL,{
+        useNewUrlParser: true,
         useUnifiedTopology: true
     })
     .then(() => console.log('DB connection successful!'));
