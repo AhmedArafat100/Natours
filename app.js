@@ -9,6 +9,7 @@ const helmet =require('helmet')
 const mongoSanitize = require('express-mongo-sanitize')
 const xss =require('xss-clean')
 const hpp = require('hpp')
+const compression = require('compression')
 const cookieParser= require('cookie-parser')
 const globalErrorHandler =require('./controllers/errorController')
 dotenv.config({path:'./config.env'});
@@ -82,6 +83,8 @@ app.use('/api/v1/reviews', reviewRouter);
 app.use('/api/v1/booking',bookingRouter);
 
 //error handler
+
+app.use(compression())
 
 app.use((req, res, next) => {
     req.requestTime = new Date().toISOString();
