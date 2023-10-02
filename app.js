@@ -44,7 +44,7 @@ const limiter =rateLimit({
     message:"Too many requests, try again later!!"
 })
 
-app.use('/',limiter)
+app.use('/api',limiter)
 
 
 
